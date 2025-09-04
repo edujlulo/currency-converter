@@ -10,7 +10,7 @@ body {
 }
 
 #creator {
-  margin: 105px 0;
+  margin: 115px 0;
   font-size: 30px;
   font-weight: bold;
   color: #132020;
@@ -31,12 +31,12 @@ h1 {
 }
 
 .button-currency {
-  width: 140px;
+  width: 142px;
 }
 
 #img-currencies {
   display: block;
-  width: 60px;
+  width: 62px;
   margin: 0 auto;
   color: #132020;
 }
