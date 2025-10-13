@@ -53,3 +53,8 @@ h1 {
   margin-top: 20px;
   color: #132020;
 }
+
+#menu-1,
+#menu-2 {
+  border-radius: 4px;
+}
