@@ -52,16 +52,6 @@ function calculationInput1() {
   input1.value = input2.value / 1.1541;
 }
 
-function contadorOcurrencias(arr, val) {
-  let resultado = 0;
+// ======================================================
 
-  arr.forEach((n) => {
-    if (n === val) {
-      resultado++;
-    }
-  });
-
-  return resultado;
-}
-
-console.log(contadorOcurrencias([1, 2, 3, 2, 4], 2));
+function 
