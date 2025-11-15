@@ -53,26 +53,3 @@ function calculationInput1() {
 }
 
 // ======================================================
-
-const btn = document.createElement("button");
-const text = document.createElement("p");
-
-const body = document.querySelector("body");
-
-body.appendChild(text);
-body.appendChild(btn);
-
-btn.classList.add("boton");
-
-text.textContent = "Hello world";
-let world = true;
-
-btn.addEventListener("click", () => {
-  if (world) {
-    text.textContent = "Hello Eduardo";
-    world = false;
-  } else {
-    text.textContent = "Hello world";
-    world = true;
-  }
-});
