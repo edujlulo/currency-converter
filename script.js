@@ -51,8 +51,6 @@ input2.addEventListener("input", calculationInput1);
 function calculationInput1() {
   input1.value = input2.value / 1.1541;
 }
+<<<<<<< Updated upstream
 
 // ======================================================
-
-obj1 = [1, 1, 2, 3];
-console.log(...obj1);
