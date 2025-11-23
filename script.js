@@ -53,22 +53,3 @@ function calculationInput1() {
 }
 
 // ======================================================
-
-// Escribe una función que reciba un array de números y devuelva el número que más se repite.
-
-const numeros = [1, 2, 3, 2, 3, 2, 5, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3];
-
-function masFrecuente(arr) {
-  let obj = arr.reduce((acc, num) => {
-    acc[num] = (acc[num] || 0) + 1;
-    return acc;
-  }, {});
-
-  let resultado = Object.entries(obj).sort((a, b) => b[1] - a[1])[0];
-
-  return `Se repite mas el numero ${resultado[0]} con ${resultado[1]} veces`;
-}
-
-console.log(masFrecuente(numeros));
-
-// console.log(numeros.sort((a, b) => b - a));
