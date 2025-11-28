@@ -53,3 +53,20 @@ function calculationInput1() {
 }
 
 // ======================================================
+
+// function throttle(fn, delay) {
+//   let lastTime = 0;
+
+//   return function (...args) {
+//     const now = Date.now();
+//     if (now - lastTime >= delay) {
+//       lastTime = now;
+//       fn.apply(this, args);
+//     }
+//   };
+// }
+
+// // Ejemplo:
+// // const saludar = throttle(() => console.log("Hola"), 1000);
+
+// setInterval(saludar, 200); // Se imprime "Hola" cada 1 segundo
