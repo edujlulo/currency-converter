@@ -53,9 +53,3 @@ function calculationInput1() {
 }
 
 // ======================================================
-
-function contador(arr) {
-  return [...new Set(arr)];
-}
-
-console.log(contador([1, 2, 3, 2, 2, 4, 4, 4, 4, 4, 4]));
