@@ -43,13 +43,25 @@ updateMenus(menu2, menu1);
 input1.addEventListener("input", calculationInput2);
 
 function calculationInput2() {
-  input2.value = input1.value * 1.1541;
+  if (input1.value === "") {
+    input2.value = "";
+    return;
+  }
+
+  const result = input1.value * 1.1541;
+  input2.value = result.toFixed(2);
 }
 
 input2.addEventListener("input", calculationInput1);
 
 function calculationInput1() {
-  input1.value = input2.value / 1.1541;
+  if (input2.value === "") {
+    input1.value = "";
+    return;
+  }
+
+  const result = input2.value / 1.1541;
+  input1.value = result.toFixed(2);
 }
 
 // ======================================================
