@@ -1,8 +1,8 @@
 const input1 = document.getElementById("input1");
 const input2 = document.getElementById("input2");
-
 const menu1 = document.getElementById("menu-1");
 const menu2 = document.getElementById("menu-2");
+const exchangeRate = document.querySelector(".exchange-rate");
 
 const originalOptions = [
   { value: "pound-sterling", text: "Pound Sterling" },
@@ -43,13 +43,19 @@ updateMenus(menu2, menu1);
 input1.addEventListener("input", calculationInput2);
 
 function calculationInput2() {
-  input2.value = input1.value * 1.1541;
+  const result = input1.value * exchangeRateValue;
+  input2.value = Number(result.toFixed(2));
 }
 
 input2.addEventListener("input", calculationInput1);
 
 function calculationInput1() {
-  input1.value = input2.value / 1.1541;
+  const result = input2.value / exchangeRateValue;
+  input1.value = Number(result.toFixed(2));
 }
 
-// ======================================================
+// Assigning exchange rate value
+
+let exchangeRateValue = 123;
+
+exchangeRate.textContent = `Exchange rate: ${exchangeRateValue}`;
