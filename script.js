@@ -4,6 +4,8 @@ const menu1 = document.getElementById("menu-1");
 const menu2 = document.getElementById("menu-2");
 const exchangeRate = document.querySelector(".exchange-rate");
 
+let exchangeRateValue;
+
 // Exchange rate values
 
 const rates = {
@@ -102,9 +104,9 @@ function updateActualCurrencies() {
 }
 
 function updateExchangeRate() {
-  exchangeRate.textContent = `1 ${currentCurrency1} equals ${(
-    rates[menu2.value] / rates[menu1.value]
-  ).toFixed(2)} ${currentCurrency2}`;
-}
+  exchangeRateValue = rates[menu2.value] / rates[menu1.value];
 
-let exchangeRateValue = 123;
+  exchangeRate.textContent = `1 ${currentCurrency1} equals ${exchangeRateValue.toFixed(
+    2
+  )} ${currentCurrency2}`;
+}
