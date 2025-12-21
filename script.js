@@ -45,8 +45,8 @@ menu2.addEventListener("change", () => updateMenus(menu2, menu1));
 
 // Calling the function once change
 
-updateMenus(menu1, menu2);
-updateMenus(menu2, menu1);
+// updateMenus(menu1, menu2);
+// updateMenus(menu2, menu1);
 
 // Calculation of exchange
 
@@ -71,15 +71,20 @@ let currency2 = menu2.options[0].text;
 
 updateExchangeRate();
 
-menu1.addEventListener("change", (e) => {
-  currency1 = e.target.options[e.target.selectedIndex].text;
+menu1.addEventListener("change", () => {
+  updateActualCurrencies();
   updateExchangeRate();
 });
 
-menu2.addEventListener("change", (e) => {
-  currency2 = e.target.options[e.target.selectedIndex].text;
+menu2.addEventListener("change", () => {
+  updateActualCurrencies();
   updateExchangeRate();
 });
+
+function updateActualCurrencies() {
+  currency1 = menu1.options[menu1.selectedIndex].text;
+  currency2 = menu2.options[menu2.selectedIndex].text;
+}
 
 function updateExchangeRate() {
   exchangeRate.textContent = `${currency1} equals ${currency2}`;
