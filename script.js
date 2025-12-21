@@ -4,6 +4,16 @@ const menu1 = document.getElementById("menu-1");
 const menu2 = document.getElementById("menu-2");
 const exchangeRate = document.querySelector(".exchange-rate");
 
+// Exchange rate values
+
+const rates = {
+  "us-dollar": {
+    euro: 0.92,
+    "pound-sterling": 0.79,
+    "japanese-yen": 156,
+  },
+};
+
 const originalOptions = [
   { value: "pound-sterling", text: "Pound Sterling" },
   { value: "euro", text: "Euro" },
@@ -33,7 +43,7 @@ function updateMenus(changed, other) {
 menu1.addEventListener("change", () => updateMenus(menu1, menu2));
 menu2.addEventListener("change", () => updateMenus(menu2, menu1));
 
-// Calling the function once charge
+// Calling the function once change
 
 updateMenus(menu1, menu2);
 updateMenus(menu2, menu1);
@@ -56,6 +66,23 @@ function calculationInput1() {
 
 // Assigning exchange rate value
 
-let exchangeRateValue = 123;
+let currency1 = menu1.options[0].text;
+let currency2 = menu2.options[0].text;
 
-exchangeRate.textContent = `Exchange rate: ${exchangeRateValue}`;
+updateExchangeRate();
+
+menu1.addEventListener("change", (e) => {
+  currency1 = e.target.options[e.target.selectedIndex].text;
+  updateExchangeRate();
+});
+
+menu2.addEventListener("change", (e) => {
+  currency2 = e.target.options[e.target.selectedIndex].text;
+  updateExchangeRate();
+});
+
+function updateExchangeRate() {
+  exchangeRate.textContent = `${currency1} equals ${currency2}`;
+}
+
+let exchangeRateValue = 123;
