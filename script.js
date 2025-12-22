@@ -22,33 +22,6 @@ const originalOptions = [
   { value: "japanese-yen", text: "Japanese Yen" },
 ];
 
-// function updateMenus(changed, other) {
-//   const selectedValue = changed.value;
-//   other.innerHTML = ""; // Clean options from other menu
-
-//   originalOptions.forEach((op) => {
-//     if (op.value !== selectedValue) {
-//       const option = document.createElement("option");
-//       option.value = op.value;
-//       option.textContent = op.text;
-//       other.appendChild(option);
-// //     }
-// //   });
-
-//   // If the last selection of the other menu was deleted, select the first available
-//   if (![...other.options].some((opt) => opt.value === other.value)) {
-//     other.selectedIndex = 0;
-// //   }
-// // }
-
-// menu1.addEventListener("change", () => updateMenus(menu1, menu2));
-// menu2.addEventListener("change", () => updateMenus(menu2, menu1));
-
-// Calling the function once change
-
-// updateMenus(menu1, menu2);
-// updateMenus(menu2, menu1);
-
 // Calculation of exchange
 
 input1.addEventListener("input", calculationInput2);
@@ -84,6 +57,7 @@ menu1.addEventListener("change", () => {
   previousCurrency1 = menu1.options[menu1.selectedIndex].value;
 
   updateExchangeRate();
+  calculationInput1();
 });
 
 menu2.addEventListener("change", () => {
@@ -96,6 +70,7 @@ menu2.addEventListener("change", () => {
   previousCurrency2 = menu2.options[menu2.selectedIndex].value;
 
   updateExchangeRate();
+  calculationInput2();
 });
 
 function updateActualCurrencies() {
