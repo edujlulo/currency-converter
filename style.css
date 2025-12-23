@@ -72,3 +72,12 @@ h1 {
 #creator a:hover {
   text-decoration: underline; /* sutil efecto hover */
 }
+
+#img-converter {
+  cursor: pointer;
+  padding: 5px 5px;
+}
+
+#img-converter:hover {
+  background-color: rgba(50, 105, 142, 0.221);
+}

@@ -3,6 +3,7 @@ const input2 = document.getElementById("input2");
 const menu1 = document.getElementById("menu-1");
 const menu2 = document.getElementById("menu-2");
 const exchangeRate = document.querySelector(".exchange-rate");
+const imgConverter = document.getElementById("img-converter");
 
 let exchangeRateValue;
 
@@ -78,10 +79,31 @@ function updateActualCurrencies() {
   currentCurrency2 = menu2.options[menu2.selectedIndex].text;
 }
 
+function updatePreviousCurrencies() {
+  previousCurrency1 = menu1.options[menu1.selectedIndex].value;
+  previousCurrency2 = menu2.options[menu2.selectedIndex].value;
+}
+
 function updateExchangeRate() {
   exchangeRateValue = rates[menu2.value] / rates[menu1.value];
 
   exchangeRate.textContent = `1 ${currentCurrency1} equals ${exchangeRateValue.toFixed(
     2
   )} ${currentCurrency2}`;
+}
+
+// Inverter inputs image event on click
+
+imgConverter.addEventListener("click", invertInputs);
+
+function invertInputs() {
+  menu1.value = previousCurrency2;
+  menu2.value = previousCurrency1;
+
+  updatePreviousCurrencies();
+  updateActualCurrencies();
+  updateExchangeRate();
+
+  input2.value = input1.value;
+  calculationInput1();
 }
