@@ -17,6 +17,9 @@ const currencies = {
   CNY: "Chinese Renminbi",
   CAD: "Canadian dollar",
   AUD: "Australian dollar",
+  CHF: "Swiss Franc",
+  SGD: "Singapore Dollar",
+  OMR: "Omani Rial",
 };
 
 // Generating the lists in menus
@@ -116,6 +119,7 @@ function updateExchangeRate() {
   exchangeRate.textContent = `1 ${currentCurrency1} equals ${exchangeRateValue.toFixed(
     2
   )} ${currentCurrency2}`;
+  dateMessage();
 }
 
 // Inverter inputs image event on click
@@ -132,4 +136,34 @@ function invertInputs() {
 
   input2.value = input1.value;
   calculationInput1();
+}
+
+// Date message
+
+const dateMessageElement = document.querySelector(".date-message");
+
+function dateMessage() {
+  fetch("https://open.er-api.com/v6/latest/USD")
+    .then((res) => {
+      if (!res.ok) throw new Error("Network response was not ok");
+      return res.json();
+    })
+    .then((data) => {
+      const utcDate = new Date(data.time_last_update_utc);
+
+      const formattedDate = utcDate.toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+
+      dateMessageElement.textContent = `Last updated: ${formattedDate}`;
+    })
+    .catch((error) => {
+      console.error("Error fetching date:", error);
+      dateMessageElement.textContent = "Date unavailable";
+    });
 }

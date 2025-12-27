@@ -81,3 +81,9 @@ h1 {
 #img-converter:hover {
   background-color: rgba(50, 105, 142, 0.221);
 }
+
+/* Date message */
+
+.date-message {
+  font-size: 15px;
+}
