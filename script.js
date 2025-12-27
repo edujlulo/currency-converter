@@ -9,12 +9,22 @@ let exchangeRateValue;
 
 // Exchange rate values
 
-const rates = {
-  "us-dollar": 1,
-  euro: 0.92,
-  "pound-sterling": 0.79,
-  "japanese-yen": 156,
+let rates = {
+  "us-dollar": null,
+  euro: null,
+  "pound-sterling": null,
+  "japanese-yen": null,
 };
+
+fetch("https://open.er-api.com/v6/latest/USD")
+  .then((res) => res.json())
+  .then((data) => {
+    rates["us-dollar"] = data.rates.USD;
+    rates["euro"] = data.rates.EUR;
+    rates["pound-sterling"] = data.rates.GBP;
+    rates["japanese-yen"] = data.rates.JPY;
+    updateExchangeRate();
+  });
 
 const originalOptions = [
   { value: "pound-sterling", text: "Pound Sterling" },
