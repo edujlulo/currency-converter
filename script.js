@@ -7,31 +7,49 @@ const imgConverter = document.getElementById("img-converter");
 
 let exchangeRateValue;
 
+// Currencies list
+
+const currencies = {
+  USD: "US Dollar",
+  EUR: "Euro",
+  GBP: "Pound sterling",
+  JPY: "Japanese Yen",
+  CNY: "Chinese Renminbi",
+  CAD: "Canadian dollar",
+  AUD: "Australian dollar",
+};
+
+// Generating the lists in menus
+
+const entries = Object.entries(currencies);
+
+entries.forEach(([value, str], index) => {
+  let option1 = document.createElement("option");
+  option1.value = value;
+  option1.textContent = str;
+  menu1.appendChild(option1);
+
+  let option2 = document.createElement("option");
+  option2.value = value;
+  option2.textContent = str;
+  menu2.appendChild(option2);
+});
+
+menu1.value = entries[0][0];
+menu2.value = entries[1][0];
+
 // Exchange rate values
 
-let rates = {
-  "us-dollar": null,
-  euro: null,
-  "pound-sterling": null,
-  "japanese-yen": null,
-};
+let rates = {};
 
 fetch("https://open.er-api.com/v6/latest/USD")
   .then((res) => res.json())
   .then((data) => {
-    rates["us-dollar"] = data.rates.USD;
-    rates["euro"] = data.rates.EUR;
-    rates["pound-sterling"] = data.rates.GBP;
-    rates["japanese-yen"] = data.rates.JPY;
+    rates = data.rates;
     updateExchangeRate();
+    updateActualCurrencies();
+    updatePreviousCurrencies();
   });
-
-const originalOptions = [
-  { value: "pound-sterling", text: "Pound Sterling" },
-  { value: "euro", text: "Euro" },
-  { value: "us-dollar", text: "US Dollar" },
-  { value: "japanese-yen", text: "Japanese Yen" },
-];
 
 // Calculation of exchange
 
@@ -64,8 +82,7 @@ menu1.addEventListener("change", () => {
   }
 
   updateActualCurrencies();
-
-  previousCurrency1 = menu1.options[menu1.selectedIndex].value;
+  updatePreviousCurrencies();
 
   updateExchangeRate();
   calculationInput1();
@@ -77,8 +94,7 @@ menu2.addEventListener("change", () => {
   }
 
   updateActualCurrencies();
-
-  previousCurrency2 = menu2.options[menu2.selectedIndex].value;
+  updatePreviousCurrencies();
 
   updateExchangeRate();
   calculationInput2();
