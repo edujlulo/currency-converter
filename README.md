@@ -1,5 +1,7 @@
 # 💱 Real-Time Currency Converter
 
+**Live Demo:** [https://currency-converter-eduardo.netlify.app](https://currency-converter-eduardo.netlify.app)
+
 A real-time currency converter built with **Vanilla JavaScript**, allowing users to convert between multiple currencies using up-to-date exchange rates from a public API.
 
 This project focuses on **clean JavaScript logic**, **DOM manipulation**, **API consumption**, and **user experience**, without relying on external frameworks.
