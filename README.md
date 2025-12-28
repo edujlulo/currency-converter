@@ -1,4 +1,4 @@
-💱 Real-Time Currency Converter
+💱 **Real-Time Currency Converter**
 
 A real-time currency converter built with Vanilla JavaScript, allowing users to convert between multiple currencies using up-to-date exchange rates from a public API.
 
@@ -100,7 +100,6 @@ Endpoint:
 
 https://open.er-api.com/v6/latest/USD
 
-
 Why this API?
 
 Free to use
@@ -119,8 +118,8 @@ currency-converter/
 ├── style.css
 ├── script.js
 ├── img/
-│   ├── currencies.png
-│   └── convert.png
+│ ├── currencies.png
+│ └── convert.png
 └── README.md
 
 🎯 Key JavaScript Concepts Used
