@@ -59,18 +59,18 @@ h1 {
 
 #creator {
   margin-top: 30px;
-  font-size: 14px; /* más pequeño que el resto */
-  color: #132020; /* mismo color que tu diseño */
-  text-align: center; /* centrado */
+  font-size: 14px;
+  color: #132020;
+  text-align: center;
 }
 
 #creator a {
-  color: #132020; /* mismo color, o un azul suave */
-  text-decoration: none; /* quita el subrayado */
+  color: #132020;
+  text-decoration: none;
 }
 
 #creator a:hover {
-  text-decoration: underline; /* sutil efecto hover */
+  text-decoration: underline;
 }
 
 #img-converter {
